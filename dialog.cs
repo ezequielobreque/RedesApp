@@ -48,11 +48,36 @@ namespace RedesApp
 
         private void dialog_Load(object sender, EventArgs e)
         {
-                  foreach (var i in this.lista)
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+            foreach (var i in this.lista)
             {
                 this.comboBox1.Items.Add($"Nodo {i.nodo}");
                 this.comboBox2.Items.Add($"Nodo {i.nodo}");
             }
+        }
+
+        const int WM_SYSCOMMAND = 0x112;
+        const int MOUSE_MOVE = 0xF012;
+
+        // Declaraciones del API
+        [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        //
+        [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //
+        // función privada usada para mover el formulario actual
+
+        private void moverForm()
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_SYSCOMMAND, MOUSE_MOVE, 0);
+        }
+
+
+        private void Form1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            moverForm();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,7 +115,7 @@ namespace RedesApp
             {
 
 
-                context.Conexion.Add(new Conexion { Nodo1 = Nodo1, Nodo2 = Nodo2, distancia = int.Parse(distancia.Text) });
+                context.Conexion.Add(new Conexion { Nodo1 = Nodo1, Nodo2 = Nodo2, distancia = int.Parse(distancia.Text),activado=true });
                 context.SaveChanges();
                 this.form.lista = context.Nodo.Where(s => s.nodo >= 0).ToList();
 

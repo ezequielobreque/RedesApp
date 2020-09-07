@@ -43,6 +43,11 @@
             this.RIP = new System.Windows.Forms.Button();
             this.OSPF = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
+            this.DesactivarButton = new FontAwesome.Sharp.IconButton();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.desactivarConexion = new System.Windows.Forms.Button();
+            this.listBox4 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // EliminarN
@@ -54,11 +59,11 @@
             this.EliminarN.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.EliminarN.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.EliminarN.IconSize = 30;
-            this.EliminarN.Location = new System.Drawing.Point(303, 676);
+            this.EliminarN.Location = new System.Drawing.Point(188, 676);
             this.EliminarN.Margin = new System.Windows.Forms.Padding(7);
             this.EliminarN.Name = "EliminarN";
             this.EliminarN.Rotation = 0D;
-            this.EliminarN.Size = new System.Drawing.Size(219, 55);
+            this.EliminarN.Size = new System.Drawing.Size(161, 55);
             this.EliminarN.TabIndex = 0;
             this.EliminarN.Text = "Eliminar";
             this.EliminarN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -78,7 +83,7 @@
             this.agregarN.Margin = new System.Windows.Forms.Padding(7);
             this.agregarN.Name = "agregarN";
             this.agregarN.Rotation = 0D;
-            this.agregarN.Size = new System.Drawing.Size(199, 55);
+            this.agregarN.Size = new System.Drawing.Size(152, 55);
             this.agregarN.TabIndex = 1;
             this.agregarN.Text = "Agregar";
             this.agregarN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -94,7 +99,7 @@
             this.EliminarC.IconChar = FontAwesome.Sharp.IconChar.Minus;
             this.EliminarC.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.EliminarC.IconSize = 30;
-            this.EliminarC.Location = new System.Drawing.Point(1095, 259);
+            this.EliminarC.Location = new System.Drawing.Point(1095, 323);
             this.EliminarC.Margin = new System.Windows.Forms.Padding(7);
             this.EliminarC.Name = "EliminarC";
             this.EliminarC.Rotation = 0D;
@@ -126,7 +131,7 @@
             this.listBox1.Location = new System.Drawing.Point(22, 66);
             this.listBox1.Margin = new System.Windows.Forms.Padding(7);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(500, 593);
+            this.listBox1.Size = new System.Drawing.Size(343, 593);
             this.listBox1.TabIndex = 4;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -139,7 +144,7 @@
             this.listBox2.Location = new System.Drawing.Point(581, 66);
             this.listBox2.Margin = new System.Windows.Forms.Padding(7);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(500, 593);
+            this.listBox2.Size = new System.Drawing.Size(321, 593);
             this.listBox2.TabIndex = 5;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 
@@ -151,7 +156,7 @@
             this.NuevaC.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.NuevaC.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
             this.NuevaC.IconSize = 30;
-            this.NuevaC.Location = new System.Drawing.Point(1095, 190);
+            this.NuevaC.Location = new System.Drawing.Point(1095, 254);
             this.NuevaC.Margin = new System.Windows.Forms.Padding(7);
             this.NuevaC.Name = "NuevaC";
             this.NuevaC.Rotation = 0D;
@@ -197,7 +202,7 @@
             // ModificarC
             // 
             this.ModificarC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ModificarC.Location = new System.Drawing.Point(1095, 121);
+            this.ModificarC.Location = new System.Drawing.Point(1095, 185);
             this.ModificarC.Margin = new System.Windows.Forms.Padding(7);
             this.ModificarC.Name = "ModificarC";
             this.ModificarC.Size = new System.Drawing.Size(379, 55);
@@ -209,7 +214,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1098, 351);
+            this.label4.Location = new System.Drawing.Point(1095, 424);
             this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 31);
@@ -219,7 +224,7 @@
             // RIP
             // 
             this.RIP.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RIP.Location = new System.Drawing.Point(1095, 403);
+            this.RIP.Location = new System.Drawing.Point(1095, 462);
             this.RIP.Margin = new System.Windows.Forms.Padding(7);
             this.RIP.Name = "RIP";
             this.RIP.Size = new System.Drawing.Size(379, 55);
@@ -231,7 +236,7 @@
             // OSPF
             // 
             this.OSPF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OSPF.Location = new System.Drawing.Point(1095, 472);
+            this.OSPF.Location = new System.Drawing.Point(1095, 531);
             this.OSPF.Margin = new System.Windows.Forms.Padding(7);
             this.OSPF.Name = "OSPF";
             this.OSPF.Size = new System.Drawing.Size(379, 55);
@@ -253,12 +258,87 @@
             this.ExitButton.UseVisualStyleBackColor = true;
             this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // DesactivarButton
+            // 
+            this.DesactivarButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.DesactivarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DesactivarButton.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.DesactivarButton.Font = new System.Drawing.Font("Georgia", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DesactivarButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            this.DesactivarButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.DesactivarButton.IconSize = 30;
+            this.DesactivarButton.Location = new System.Drawing.Point(363, 676);
+            this.DesactivarButton.Margin = new System.Windows.Forms.Padding(7);
+            this.DesactivarButton.Name = "DesactivarButton";
+            this.DesactivarButton.Rotation = 0D;
+            this.DesactivarButton.Size = new System.Drawing.Size(199, 55);
+            this.DesactivarButton.TabIndex = 15;
+            this.DesactivarButton.Text = "Des/Activar";
+            this.DesactivarButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DesactivarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.DesactivarButton.UseVisualStyleBackColor = true;
+            this.DesactivarButton.Click += new System.EventHandler(this.DesactivarButton_Click);
+            // 
+            // listBox3
+            // 
+            this.listBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.listBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.ItemHeight = 31;
+            this.listBox3.Location = new System.Drawing.Point(363, 66);
+            this.listBox3.Margin = new System.Windows.Forms.Padding(7);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox3.Size = new System.Drawing.Size(199, 593);
+            this.listBox3.TabIndex = 16;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(357, 18);
+            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 31);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Estado";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // desactivarConexion
+            // 
+            this.desactivarConexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.desactivarConexion.Location = new System.Drawing.Point(1095, 118);
+            this.desactivarConexion.Margin = new System.Windows.Forms.Padding(7);
+            this.desactivarConexion.Name = "desactivarConexion";
+            this.desactivarConexion.Size = new System.Drawing.Size(379, 55);
+            this.desactivarConexion.TabIndex = 18;
+            this.desactivarConexion.Text = "desactivar conexion";
+            this.desactivarConexion.UseVisualStyleBackColor = true;
+            this.desactivarConexion.Click += new System.EventHandler(this.desactivarConexion_Click);
+            // 
+            // listBox4
+            // 
+            this.listBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
+            this.listBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 31;
+            this.listBox4.Location = new System.Drawing.Point(902, 66);
+            this.listBox4.Margin = new System.Windows.Forms.Padding(7);
+            this.listBox4.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(179, 593);
+            this.listBox4.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(55)))));
             this.ClientSize = new System.Drawing.Size(1499, 745);
+            this.Controls.Add(this.listBox4);
+            this.Controls.Add(this.desactivarConexion);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.DesactivarButton);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.OSPF);
             this.Controls.Add(this.RIP);
@@ -303,6 +383,11 @@
         private System.Windows.Forms.Button RIP;
         private System.Windows.Forms.Button OSPF;
         private System.Windows.Forms.Button ExitButton;
+        private FontAwesome.Sharp.IconButton DesactivarButton;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button desactivarConexion;
+        private System.Windows.Forms.ListBox listBox4;
     }
 }
 

@@ -17,7 +17,7 @@ namespace RedesApp.controllers
 		DBcontext context = new DBcontext();
 		public Nodo[] getNodos()
 		{
-			Nodo[] nodos = context.Nodo.ToArray();
+			Nodo[] nodos = context.Nodo.OrderBy(s=>s.nodo).ToArray();
 
 
 			return nodos;
@@ -373,19 +373,61 @@ namespace RedesApp.controllers
 			{
 				foreach (var conex in conexiones)
 				{
+					if (conex.activado == true)
+					{
+						if (conex.Nodo1.activado == false || conex.Nodo2.activado == false)
+					{
 
-					gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = 1;
-					gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = 1;
+						gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = -1;
+						gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = -1;
+                    }
+                    else
+                    {
+
+						gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = 1;
+						gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = 1;
+
+					}
+				}
+					else
+				{
+
+					gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = -1;
+					gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = -1;
 
 				}
+
+			}
 			}else if(tipo == "OSPF")
             {
 
 				foreach (var conex in conexiones)
 				{
+					if (conex.activado == true){
+						if (conex.Nodo1.activado == false || conex.Nodo2.activado == false)
+						{
 
-					gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = conex.distancia;
-					gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = conex.distancia;
+							gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = -1;
+							gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = -1;
+						}
+						else
+						{
+
+							gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = conex.distancia;
+							gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = conex.distancia;
+
+						}
+
+					}
+					else
+					{
+
+						gra[conex.Nodo1.nodo, conex.Nodo2.nodo] = -1;
+						gra[conex.Nodo2.nodo, conex.Nodo1.nodo] = -1;
+
+					}
+
+
 
 				}
 			}

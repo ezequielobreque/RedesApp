@@ -33,17 +33,42 @@ namespace RedesApp
             /* this.listBox1.DisplayMember = "nodo";
              this.listBox1.ValueMember = "Id";*/
 
-
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.lista = mainController.getNodos();
             this.Conexiones = mainController.getConexions();
             this.grapho = mainController.grafo(this.lista, this.Conexiones, this.tipo);
 
-
+            this.label3.Text = this.tipo;
 
             foreach (var i in this.lista)
             {
                 this.listBox1.Items.Add($"Nodo {i.nodo}");
             }
+        }
+
+
+        const int WM_SYSCOMMAND = 0x112;
+        const int MOUSE_MOVE = 0xF012;
+
+        // Declaraciones del API
+        [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        //
+        [System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        //
+        // función privada usada para mover el formulario actual
+
+        private void moverForm()
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, WM_SYSCOMMAND, MOUSE_MOVE, 0);
+        }
+
+
+        private void Form1_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            moverForm();
         }
 
         private List<int> Nodoscompletos()
@@ -53,6 +78,8 @@ namespace RedesApp
             foreach (var nod in lista)
             {
                 var bol = false;
+                var acti = false;
+                if (nod.activado == true) { acti = true; }
                 foreach (var conex in Conexiones)
                 {
                     if (conex.Nodo1 == nod || conex.Nodo2 == nod)
@@ -60,7 +87,7 @@ namespace RedesApp
                         bol = true;
                     }
                 }
-                if (bol == false) { arr.Add(nod.nodo); };
+                if (bol == false || acti==false) { arr.Add(nod.nodo); };
             }
 
 
@@ -155,6 +182,11 @@ namespace RedesApp
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
