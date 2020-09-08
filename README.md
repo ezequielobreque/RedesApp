@@ -1,4 +1,4 @@
-# RedesApp installacion
+# RedesApp instalacion
 	-instalar C# con net.core( todo desde el visual studio en windows).
 	-abrir el projecto.
 	-instalar todas las dependecias de los packetes nuget.
